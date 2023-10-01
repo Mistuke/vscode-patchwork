@@ -7,7 +7,7 @@ export async function fetchAPIHTMLPage(context: ExtensionContext): Promise<jsdom
   // We can not retrieve Persons from the REST API without being connected. However...
   // Patchwork's Django REST web portal exposes it in its HTML. This lets us retrieve the list without requiring a connection.
   // This page also contains projects so while we are at it, scrap these too
-  const html = await axios.get("https://patchwork.kernel.org/api/patches/?msgid=0", {
+  const html = await axios.get("https://patchwork.sourceware.org/api/patches/?project=6&archived=&msgid=0", {
     headers: { Accept: "text/html", 'User-Agent': userAgent(context) },
   });
 
